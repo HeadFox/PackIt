@@ -1,0 +1,25 @@
+@import "../assets/stylesheets/config.scss";
+
+.packit {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    font-family: system-ui;
+    transform: translate(-50%, -50%);
+
+    &__title {
+        display: inline-block;
+        padding: 20px 50px;
+        border: 2px solid $black;
+        font-family: "Roboto Mono", monospace;
+        font-size: 22px;
+        cursor: pointer;
+        transition: all .2s ease;
+
+        &:hover {
+            background-color: $white;
+        }
+    }
+}
