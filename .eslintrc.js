@@ -1,11 +1,11 @@
 module.exports = {
-    "extends": "airbnb",
+    "extends": "standard",
     "plugins": [
         "react",
-        "jsx-a11y",
         "import"
     ],
+    "parser": "babel-eslint",
     "rules": {
-      "quotes": ["error", "double"],
+      "quotes": ["error", "double"]
     }
 };
