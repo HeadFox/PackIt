@@ -1,5 +1,2 @@
-$(document).ready(() => {
-
-    // eslint-disable-next-line no-console
-    console.log("Hello world");
-});
+// eslint-disable-next-line no-console
+console.log("Hello world");
