@@ -1,6 +1,6 @@
 {
   "name": "PackIt",
-  "version": "0.7",
+  "version": "0.7.0",
   "private": true,
   "devDependencies": {
     "babel-core": "^6.26.0",
