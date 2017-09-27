@@ -1,7 +1,12 @@
 @import "config";
 @import "reset";
 
-/* stylelint-disable-next-line selector-max-type */
+/* stylelint-disable */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   background-color: #1de9b6;
   font-family: "Roboto Mono", monospace;
