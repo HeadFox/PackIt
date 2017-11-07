@@ -2,6 +2,7 @@ const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 // const webpack = require("webpack")
 // const NpmInstallPlugin = require("npm-install-webpack2-plugin")
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
@@ -72,6 +73,7 @@ const config = {
     new HtmlWebpackPlugin({ title: "PackIt", template: "src/main.ejs", lang: "fr" }),
     new ScriptExtHtmlWebpackPlugin({ defaultAttribute: "defer" }),
     new StyleLintPlugin(),
+    new UglifyJSPlugin(),
     // new NpmInstallPlugin(),
   ],
   devServer: {
