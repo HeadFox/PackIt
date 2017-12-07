@@ -1,8 +1,5 @@
 module.exports = {
   "extends": "airbnb",
-  "rules": {
-    "quotes": ["error", "double"],
-  },
   "settings": {
     "import/resolver": {
       "webpack": {
