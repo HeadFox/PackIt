@@ -1,22 +1,27 @@
+/* eslint-disable */
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const webpack = require("webpack")
-// const NpmInstallPlugin = require("npm-install-webpack2-plugin")
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const NpmInstallPlugin = require("npm-install-webpack-plugin")
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+/* eslint-enable */
 
 const config = {
-  entry: './src/main.js',
+  entry: ['babel-polyfill', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'output.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'],
     alias: {
-      config: path.resolve(__dirname, 'config', 'config.js'),
+      actions: path.resolve(__dirname, 'src/actions'),
+      layouts: path.resolve(__dirname, 'src/components/layouts'),
       commons: path.resolve(__dirname, 'src/components/commons'),
       images: path.resolve(__dirname, 'src/assets/images'),
     },
@@ -78,7 +83,8 @@ const config = {
     new HtmlWebpackPlugin({ title: 'PackIt', template: 'src/main.ejs', lang: 'fr' }),
     new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer' }),
     new StyleLintPlugin(),
-    // new NpmInstallPlugin(),
+    new DashboardPlugin(),
+    new NpmInstallPlugin(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
