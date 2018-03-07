@@ -1,13 +1,8 @@
 /* eslint-disable */
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const webpack = require("webpack")
-const NpmInstallPlugin = require("npm-install-webpack-plugin")
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 /* eslint-enable */
 
 const config = {
@@ -18,7 +13,7 @@ const config = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'],
+    extensions: ['.js', '.jsx', '.json', '.jpeg', '.jpg', '.gif', '.png'],
     alias: {
       actions: path.resolve(__dirname, 'src/actions'),
       layouts: path.resolve(__dirname, 'src/components/layouts'),
@@ -37,16 +32,6 @@ const config = {
             presets: ['@babel/preset-env'],
           },
         }, 'eslint-loader'],
-      }, {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            { loader: 'postcss-loader' },
-            { loader: 'sass-loader', options: { importLoaders: 1 } },
-          ],
-        }),
       }, {
         test: /\.(jpe?g|png|gif)$/i,
         loaders: [
@@ -79,12 +64,7 @@ const config = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({ title: 'PackIt', template: 'src/main.ejs', lang: 'fr' }),
-    new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer' }),
-    new StyleLintPlugin(),
-    new DashboardPlugin(),
-    new NpmInstallPlugin(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
